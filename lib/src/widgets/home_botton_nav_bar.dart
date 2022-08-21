@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instagram_clone/src/constants/assets.dart';
 
 class HomeBottomNavBar extends StatelessWidget {
   const HomeBottomNavBar({super.key});
@@ -13,23 +14,23 @@ class HomeBottomNavBar extends StatelessWidget {
       backgroundColor: Colors.black,
       items: [
         BottomNavigationBarItem(
-          icon: SvgPicture.asset("assets/images/icons/home.svg"),
+          icon: SvgPicture.asset(home),
           label: "",
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset("assets/images/icons/search.svg"),
+          icon: SvgPicture.asset(search),
           label: "",
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset("assets/images/icons/tagged.svg"),
+          icon: SvgPicture.asset(tagged),
           label: "",
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset("assets/images/icons/find_people.svg"),
+          icon: SvgPicture.asset(findPeople),
           label: "",
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset("assets/images/icons/home.svg"),
+          icon: SvgPicture.asset(home),
           label: "",
         ),
       ],

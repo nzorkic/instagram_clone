@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/src/constants/app_sizes.dart';
-import 'package:instagram_clone/src/constants/icons.dart';
+import 'package:instagram_clone/src/constants/assets.dart';
 import 'package:instagram_clone/src/constants/test_data.dart';
 import 'package:instagram_clone/src/localization/string_hardcoded.dart';
 import 'package:readmore/readmore.dart';
@@ -51,11 +51,9 @@ class PostWidget extends StatelessWidget {
               gapW8,
             ],
           ),
-          SizedBox(
-            child: Image.asset(
-              post.image,
-              fit: BoxFit.fill,
-            ),
+          Image.asset(
+            post.image,
+            fit: BoxFit.fill,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -80,16 +78,17 @@ class PostWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+            padding: const EdgeInsets.only(left: 8.0, right: 4.0),
             child: ReadMoreText(
-                "${user.username} this is descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription",
-                trimMode: TrimMode.Line,
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-                colorClickableText: Colors.grey,
-                trimCollapsedText: "more".hardcoded,
-                trimExpandedText: " less".hardcoded),
+              "${user.username} this is descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription",
+              trimMode: TrimMode.Line,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+              colorClickableText: Colors.grey,
+              trimCollapsedText: "more".hardcoded,
+              trimExpandedText: " less".hardcoded,
+            ),
           ),
           const Padding(
             padding: EdgeInsets.all(8.0),
