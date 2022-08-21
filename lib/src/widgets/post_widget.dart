@@ -4,6 +4,7 @@ import 'package:instagram_clone/src/constants/app_sizes.dart';
 import 'package:instagram_clone/src/constants/assets.dart';
 import 'package:instagram_clone/src/constants/test_data.dart';
 import 'package:instagram_clone/src/localization/string_hardcoded.dart';
+import 'package:instagram_clone/src/widgets/circular_profile_image.dart';
 import 'package:readmore/readmore.dart';
 
 class PostWidget extends StatelessWidget {
@@ -24,20 +25,12 @@ class PostWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(8.0, 4.0, 4.0, 6.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(14.0),
-                  child: Image.asset(
-                    user.image,
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
+                child: CircularProfileImage(),
               ),
               gapW4,
               Text(
                 user.username,
                 style: const TextStyle(
-                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -69,12 +62,11 @@ class PostWidget extends StatelessWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Text(
-              "35 likes",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              "${post.likes.length} likes".hardcoded,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
@@ -90,18 +82,18 @@ class PostWidget extends StatelessWidget {
               trimExpandedText: " less".hardcoded,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Text(
-              "View all 11 comments",
-              style: TextStyle(color: Colors.grey),
+              "View all ${post.comments.length} comments".hardcoded,
+              style: const TextStyle(color: Colors.grey),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 8.0),
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
             child: Text(
-              "2 days ago",
-              style: TextStyle(color: Colors.grey, fontSize: 10.0),
+              "2 days ago".hardcoded,
+              style: const TextStyle(color: Colors.grey, fontSize: 10.0),
             ),
           ),
         ],
