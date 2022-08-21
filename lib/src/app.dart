@@ -1,44 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:instagram_clone/src/constants/app_sizes.dart';
-import 'package:instagram_clone/src/constants/assets.dart';
-import 'package:instagram_clone/src/widgets/home_botton_nav_bar.dart';
-import 'package:instagram_clone/src/widgets/post_widget.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:instagram_clone/src/constants/colors.dart';
+import 'package:instagram_clone/src/routing/app_router.dart';
 
-class App extends StatelessWidget {
+class App extends ConsumerWidget {
   const App({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final goRouter = ref.watch(goRouterProvider);
+    return MaterialApp.router(
+      routerDelegate: goRouter.routerDelegate,
+      routeInformationParser: goRouter.routeInformationParser,
+      routeInformationProvider: goRouter.routeInformationProvider,
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
+      theme: ThemeData(
+        primarySwatch: primaryBlack,
+        textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+        appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black,
-          title: SvgPicture.asset(whiteTextLogo),
-          actions: [
-            SvgPicture.asset(newPost),
-            gapW20,
-            SvgPicture.asset(activityFeed),
-            gapW20,
-            SvgPicture.asset(messenger),
-            gapW20,
-          ],
         ),
-        body: Container(
-          color: Colors.black,
-          alignment: Alignment.center,
-          child: ConstrainedBox(
-            constraints: BoxConstraints.tight(const Size(600, double.infinity)),
-            child: ListView.builder(
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                return PostWidget();
-              },
-            ),
-          ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.black,
         ),
-        bottomNavigationBar: const HomeBottomNavBar(),
       ),
     );
   }

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/src/constants/assets.dart';
+import 'package:instagram_clone/src/routing/app_router.dart';
+import 'package:instagram_clone/src/widgets/circular_profile_image.dart';
 
-class HomeBottomNavBar extends StatelessWidget {
-  const HomeBottomNavBar({super.key});
+class AppBottomNavBar extends ConsumerWidget {
+  const AppBottomNavBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return BottomNavigationBar(
       showSelectedLabels: false,
       showUnselectedLabels: false,
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.black,
       items: [
         BottomNavigationBarItem(
           icon: SvgPicture.asset(home),
@@ -30,11 +33,24 @@ class HomeBottomNavBar extends StatelessWidget {
           label: "",
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset(home),
+          icon: CircularProfileImage(),
           label: "",
         ),
       ],
-      currentIndex: 0,
+      currentIndex: ref.watch(_currentIndexProvider),
+      onTap: (value) => {
+        ref.read(_currentIndexProvider.notifier).state = value,
+        if (value == 0)
+          {
+            context.goNamed(AppRoute.home.name),
+          }
+        else if (value == 4)
+          {
+            context.goNamed(AppRoute.profile.name),
+          }
+      },
     );
   }
 }
+
+final _currentIndexProvider = StateProvider<int>((ref) => 0);
