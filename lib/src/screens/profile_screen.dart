@@ -127,7 +127,59 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+            Expanded(
+              child: DefaultTabController(
+                length: 2,
+                initialIndex: 0,
+                child: Scaffold(
+                  appBar: AppBar(
+                    flexibleSpace: TabBar(
+                      indicatorColor: Colors.white,
+                      tabs: [
+                        Tab(
+                          icon: SvgPicture.asset(gridPosts),
+                        ),
+                        Tab(
+                          icon: SvgPicture.asset(tagged),
+                        ),
+                      ],
+                    ),
+                  ),
+                  body: ColoredBox(
+                    color: Colors.black,
+                    child: TabBarView(
+                      children: [
+                        GridView.count(
+                          crossAxisCount: 3,
+                          children: List.generate(20, (index) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 0.5),
+                              ),
+                              child: Image.asset(user.image),
+                            );
+                          }),
+                        ),
+                        GridView.count(
+                          crossAxisCount: 3,
+                          children: List.generate(6, (index) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 0.5),
+                              ),
+                              child: Image.asset(user.image),
+                            );
+                          }),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
