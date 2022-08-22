@@ -10,6 +10,7 @@ const List<User> users = [
     followers: ["", ""],
     following: [""],
     posts: [],
+    email: "mail@mail.com",
   ),
 ];
 
