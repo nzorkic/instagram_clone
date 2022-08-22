@@ -7,6 +7,7 @@ part 'user.g.dart';
 class User with _$User {
   const factory User({
     required String username,
+    required String email,
     required String firstName,
     required String lastName,
     required List<String> followers,

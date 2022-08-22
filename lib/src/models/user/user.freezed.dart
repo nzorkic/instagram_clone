@@ -21,6 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   String get username => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   List<String> get followers => throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res>;
   $Res call(
       {String username,
+      String email,
       String firstName,
       String lastName,
       List<String> followers,
@@ -58,6 +60,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   @override
   $Res call({
     Object? username = freezed,
+    Object? email = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? followers = freezed,
@@ -69,6 +72,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       firstName: firstName == freezed
           ? _value.firstName
@@ -105,6 +112,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   $Res call(
       {String username,
+      String email,
       String firstName,
       String lastName,
       List<String> followers,
@@ -125,6 +133,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
   @override
   $Res call({
     Object? username = freezed,
+    Object? email = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? followers = freezed,
@@ -136,6 +145,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       firstName: firstName == freezed
           ? _value.firstName
@@ -170,6 +183,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 class _$_User implements _User {
   const _$_User(
       {required this.username,
+      required this.email,
       required this.firstName,
       required this.lastName,
       required final List<String> followers,
@@ -184,6 +198,8 @@ class _$_User implements _User {
 
   @override
   final String username;
+  @override
+  final String email;
   @override
   final String firstName;
   @override
@@ -214,7 +230,7 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(username: $username, firstName: $firstName, lastName: $lastName, followers: $followers, following: $following, posts: $posts, image: $image)';
+    return 'User(username: $username, email: $email, firstName: $firstName, lastName: $lastName, followers: $followers, following: $following, posts: $posts, image: $image)';
   }
 
   @override
@@ -223,6 +239,7 @@ class _$_User implements _User {
         (other.runtimeType == runtimeType &&
             other is _$_User &&
             const DeepCollectionEquality().equals(other.username, username) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality()
@@ -238,6 +255,7 @@ class _$_User implements _User {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(username),
+      const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(_followers),
@@ -261,6 +279,7 @@ class _$_User implements _User {
 abstract class _User implements User {
   const factory _User(
       {required final String username,
+      required final String email,
       required final String firstName,
       required final String lastName,
       required final List<String> followers,
@@ -272,6 +291,8 @@ abstract class _User implements User {
 
   @override
   String get username;
+  @override
+  String get email;
   @override
   String get firstName;
   @override
